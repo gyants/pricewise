@@ -36,6 +36,16 @@ export function extractCurrency(element: any) {
   return currencyText ? currencyText : "";
 }
 
+// Extract review counts
+export function extractReviewsCount(element: any) {
+  const reviewsCount = element.first().text().trim()
+  if(reviewsCount){
+    const cleanReviewsCount = reviewsCount.replace(/[^\d.]/g, '')
+
+    return cleanReviewsCount
+  }
+}
+
 // Extracts description from two possible elements from amazon
 export function extractDescription($: any) {
   // these are possible elements holding description of the product
